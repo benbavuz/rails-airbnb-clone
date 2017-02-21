@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
-gem 'cloudinary'
-gem 'attachinary', github: 'assembler/attachinary'
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', git: 'https://github.com/assembler/attachinary.git'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
