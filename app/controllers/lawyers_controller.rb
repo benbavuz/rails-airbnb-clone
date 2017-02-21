@@ -24,8 +24,13 @@ class LawyersController < ApplicationController
   end
 
   def update
-    @lawyer.update(params[:lawyer])
+    @lawyer.update(lawyer_params)
+    redirect_to lawyers_path
   end
+
+  #def update
+    #@lawyer.update(params[:lawyer])
+  #end
 
   def destroy
     @lawyer.destroy
