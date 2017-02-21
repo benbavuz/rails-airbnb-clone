@@ -13,36 +13,35 @@ class LawyersController < ApplicationController
   #actions linked to specific user
 
   def index_by_user
-    # user_id = params[:user_id]
     @user = User.find(params[:user_id])
     @lawyers = @user.lawyers
   end
 
   def new
-    #@user = User.find(params[:user_id])
     @lawyer = Lawyer.new
   end
 
   def create
     @lawyer = Lawyer.new(lawyer_params)
-    @lawyer.user = current_user # User.find(params[:user_id])
+    @lawyer.user = current_user
     @lawyer.save!
     redirect_to user_lawyers_path(user_id: @lawyer.user.id)
   end
 
-  def edit
-  end
+  # to be coded later
+  # def edit
+  # end
 
-  def update
-    @lawyer.update(lawyer_params)
-    redirect_to lawyers_path
-  end
+  # def update
+  #   @lawyer.update(lawyer_params)
+  #   redirect_to lawyers_path
+  # end
 
-  def destroy
-    if @lawyer.user == current_user
-      @lawyer.destroy
-    end
-  end
+  # def destroy
+  #   if @lawyer.user == current_user
+  #     @lawyer.destroy
+  #   end
+  # end
 
   private
 
