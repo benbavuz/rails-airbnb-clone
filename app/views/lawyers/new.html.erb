@@ -1,1 +1,13 @@
-new.html.erb
+<div class="container">
+  <div class = "new-lawyer">
+
+    <h3 class = "text-center">Add a new lawyer</h3>
+      <%= simple_form_for @lawyer do |f| %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :email %>
+          <%= f.input :phone_number %>
+          <%= f.submit "Add Lawyer", class: "btn btn-primary" %>
+        <% end %>
+  </div>
+</div>

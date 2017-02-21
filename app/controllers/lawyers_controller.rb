@@ -17,6 +17,7 @@ class LawyersController < ApplicationController
   def create
     @lawyer = Lawyer.new(lawyer_params)
     @lawyer.save
+    redirect_to lawyers_path
   end
 
   def edit
