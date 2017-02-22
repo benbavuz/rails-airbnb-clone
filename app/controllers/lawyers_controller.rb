@@ -4,7 +4,13 @@ class LawyersController < ApplicationController
 
  # action linked to all users
   def index
-    @lawyers = Lawyer.all
+    @lawyers = Lawyer.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@lawyers) do |lawyer, marker|
+      marker.lat lawyer.latitude
+      marker.lng lawyer.longitude
+      # marker.infowindow render_to_string(partial: "/lawyers/map_box", locals: { lawyer: lawyer })
+    end
   end
 
   def show
@@ -19,6 +25,11 @@ class LawyersController < ApplicationController
 
   def new
     @lawyer = Lawyer.new
+    @lawyer.first_name = current_user.first_name
+    @lawyer.last_name = current_user.last_name
+    @lawyer.email = current_user.email
+    @lawyer.phone_number = current_user.phone_number
+
   end
 
   def create

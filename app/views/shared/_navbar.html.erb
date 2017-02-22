@@ -28,6 +28,11 @@
           <%= image_tag "https://pbs.twimg.com/profile_images/575994177843904512/Su6OblHX.jpeg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
+              <%= link_to user_profile_path(current_user) do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to "#" do %>
                 <i class="fa fa-calendar"></i> <%= t(".profile", default: "Appointments") %>
               <% end %>
