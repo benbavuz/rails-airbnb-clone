@@ -7,6 +7,13 @@
           <%= f.input :last_name %>
           <%= f.input :email %>
           <%= f.input :phone_number %>
+    
+          <%= f.collection_check_boxes(:speciality_ids, Speciality.all, :id, :name) do |b| %>
+          <div>
+            <%= b.check_box %> <%= b.label %>
+          </div>
+          <% end %>
+  
           <%= f.input :photo, as: :attachinary %>
           <%= f.input :price, label: "* Price" %>
           <%= f.submit "Add Lawyer", class: "btn btn-primary" %>
