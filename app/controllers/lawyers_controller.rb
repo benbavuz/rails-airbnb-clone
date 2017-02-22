@@ -32,6 +32,11 @@ class LawyersController < ApplicationController
   end
 
   def update
+    if @lawyer.user == current_user
+      @user = @lawyer.user
+      @lawyer.update(lawyer_params)
+      redirect_to user_lawyers_path(user_id: @lawyer.user.id)
+    end
   #   @lawyer.update(lawyer_params)
   #   redirect_to lawyers_path
   end

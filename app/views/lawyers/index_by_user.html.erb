@@ -19,11 +19,12 @@
           </div>
         <% end %>
         <div class="card-user">
-
-            <%= link_to lawyer_path(lawyer), method: :delete, data: { confirm: "Confirmer la suppression ?" }  do %>
-              <i class="fa fa-times fa-lg" aria-hidden="true"></i>
-            <% end %>
-
+          <%= link_to edit_lawyer_path(lawyer) do %>
+            <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to lawyer_path(lawyer), method: :delete, data: { confirm: "Delete your lawyer post ?" }  do %>
+            <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+          <% end %>
         </div>
       </div>
     <% end %>
