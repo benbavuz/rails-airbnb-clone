@@ -9,6 +9,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'redis'
 # For lawyer location
 gem "geocoder"
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 # For user authentication
 gem 'devise'
 
