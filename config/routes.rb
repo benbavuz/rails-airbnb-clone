@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     get '/lawyers', to: "lawyers#index_by_user"
     get '/profile', to: "pages#profile"
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
