@@ -3,5 +3,8 @@
       <h2><%= @lawyer.first_name %> <%= @lawyer.last_name %><h2>
       <p><%= @lawyer.email %></p>
       <p><%= @lawyer.phone_number %></p>
+      <% if @lawyer.photo? %>
+      <%= cl_image_tag(@lawyer.photo.path, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"thumb") %>
+<% end %>
   </div>
 </div>
