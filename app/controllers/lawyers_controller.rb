@@ -37,8 +37,6 @@ class LawyersController < ApplicationController
       @lawyer.update(lawyer_params)
       redirect_to user_lawyers_path(user_id: @lawyer.user.id)
     end
-  #   @lawyer.update(lawyer_params)
-  #   redirect_to lawyers_path
   end
 
   def destroy
@@ -52,7 +50,7 @@ class LawyersController < ApplicationController
   private
 
   def lawyer_params
-  params.require(:lawyer).permit(:first_name, :last_name, :email, :phone_number, :photo)
+  params.require(:lawyer).permit(:first_name, :last_name, :email, :phone_number, :photo, :price)
   end
 
   def set_lawyer
