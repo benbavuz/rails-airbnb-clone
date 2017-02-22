@@ -1,13 +1,20 @@
 class LawyersController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_lawyer, only: [:show, :edit, :update, :destroy]
 
-
+ # action linked to all users
   def index
     @lawyers = Lawyer.all
   end
 
   def show
+  end
+
+  #actions linked to specific user
+
+  def index_by_user
+    @user = User.find(params[:user_id])
+    @lawyers = @user.lawyers
   end
 
   def new
@@ -16,20 +23,25 @@ class LawyersController < ApplicationController
 
   def create
     @lawyer = Lawyer.new(lawyer_params)
-    @lawyer.save
-    redirect_to lawyers_path
+    @lawyer.user = current_user
+    @lawyer.save!
+    redirect_to user_lawyers_path(user_id: @lawyer.user.id)
   end
 
-  def edit
-  end
+  # to be coded later
+  # def edit
+  # end
 
-  def update
-    @lawyer.update(params[:lawyer])
-  end
+  # def update
+  #   @lawyer.update(lawyer_params)
+  #   redirect_to lawyers_path
+  # end
 
-  def destroy
-    @lawyer.destroy
-  end
+  # def destroy
+  #   if @lawyer.user == current_user
+  #     @lawyer.destroy
+  #   end
+  # end
 
   private
 
