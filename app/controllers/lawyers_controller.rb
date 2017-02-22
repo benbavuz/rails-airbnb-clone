@@ -14,6 +14,12 @@ class LawyersController < ApplicationController
   end
 
   def show
+    @lawyers = []
+    @lawyers[0] = @lawyer
+    @hash = Gmaps4rails.build_markers(@lawyers) do |lawyer, marker|
+      marker.lat lawyer.latitude
+      marker.lng lawyer.longitude
+    end
   end
 
   #actions linked to specific user
