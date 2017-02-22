@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221170620) do
+ActiveRecord::Schema.define(version: 20170222112819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lawyer_specialities", force: :cascade do |t|
+    t.integer  "lawyer_id"
+    t.integer  "speciality_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["lawyer_id"], name: "index_lawyer_specialities_on_lawyer_id", using: :btree
+    t.index ["speciality_id"], name: "index_lawyer_specialities_on_speciality_id", using: :btree
+  end
 
   create_table "lawyers", force: :cascade do |t|
     t.string   "first_name"
@@ -24,6 +33,12 @@ ActiveRecord::Schema.define(version: 20170221170620) do
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_lawyers_on_user_id", using: :btree
+  end
+
+  create_table "specialities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,5 +61,7 @@ ActiveRecord::Schema.define(version: 20170221170620) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "lawyer_specialities", "lawyers"
+  add_foreign_key "lawyer_specialities", "specialities"
   add_foreign_key "lawyers", "users"
 end
