@@ -8,4 +8,8 @@ class Lawyer < ApplicationRecord
 
   has_many :lawyer_specialities
   has_many :specialities, through: :lawyer_specialities
+  
+  has_attachment :photo
+  monetize :price_cents
 end
+

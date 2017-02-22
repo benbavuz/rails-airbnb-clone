@@ -10,6 +10,8 @@
           <div class="card-category">Lawyer</div>
           <div class="card-description">
           <h2><%= lawyer.first_name %> <%=lawyer.last_name %></h2>
+          <p>Counseling: <%= humanized_money(lawyer.price) %> €</p>
+
         <!-- <p>Very cool stuff, useful and smart</p> -->
           </div>
           <!-- <img class="card-user avatar" src="user.jpg"> -->

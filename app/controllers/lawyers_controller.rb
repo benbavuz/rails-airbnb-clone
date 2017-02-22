@@ -1,6 +1,6 @@
 class LawyersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_lawyer, only: [:show, :edit, :update, :destroy, :add_speciality]
+  before_action :set_lawyer, only: [:show, :edit, :update, :destroy]
 
  # action linked to all users
   def index
@@ -28,25 +28,29 @@ class LawyersController < ApplicationController
     redirect_to user_lawyers_path(user_id: @lawyer.user.id)
   end
 
-  # to be coded later
-  # def edit
-  # end
+  def edit
+  end
 
-  # def update
-  #   @lawyer.update(lawyer_params)
-  #   redirect_to lawyers_path
-  # end
+  def update
+    if @lawyer.user == current_user
+      @user = @lawyer.user
+      @lawyer.update(lawyer_params)
+      redirect_to user_lawyers_path(user_id: @lawyer.user.id)
+    end
+  end
 
-  # def destroy
-  #   if @lawyer.user == current_user
-  #     @lawyer.destroy
-  #   end
-  # end
+  def destroy
+    if @lawyer.user == current_user
+      @user = @lawyer.user
+      @lawyer.destroy
+      redirect_to user_lawyers_path(user_id: @lawyer.user.id)
+    end
+  end
 
   private
 
-  def lawyer_params
-  params.require(:lawyer).permit(:first_name, :last_name, :email, :phone_number, speciality_ids: [])
+  def lawyer_para
+  params.require(:lawyer).permit(:first_name, :last_name, :email, :phone_number, :photo, :price, speciality_ids: [])
   end
 
   def set_lawyer
