@@ -5,5 +5,6 @@ class Lawyer < ApplicationRecord
   validates :email, presence: true
   validates :phone_number, presence:true
   validates :first_name, :uniqueness => { :scope => :last_name }
-
+  has_attachment :photo
 end
+
