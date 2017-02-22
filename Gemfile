@@ -7,6 +7,8 @@ gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
+# For lawyer location
+gem "geocoder"
 # For user authentication
 gem 'devise'
 
