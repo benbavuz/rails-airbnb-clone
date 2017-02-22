@@ -3,9 +3,16 @@
       <h2><%= @lawyer.first_name %> <%= @lawyer.last_name %><h2>
       <p><%= @lawyer.email %></p>
       <p><%= @lawyer.phone_number %></p>
+
+      <h3>Specialities</h3>
+      <% @lawyer.specialities.each do |skill| %>
+      <p><%= skill[:name] %></p>
+      <% end %>
+        
       <p>Counseling: <%= humanized_money(@lawyer.price) %> €</p>
       <% if @lawyer.photo? %>
       <%= cl_image_tag(@lawyer.photo.path, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"thumb") %>
-<% end %>
+      <% end %>
+        
   </div>
 </div>
