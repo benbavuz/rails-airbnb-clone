@@ -28,20 +28,21 @@ class LawyersController < ApplicationController
     redirect_to user_lawyers_path(user_id: @lawyer.user.id)
   end
 
-  # to be coded later
-  # def edit
-  # end
+  def edit
+  end
 
-  # def update
+  def update
   #   @lawyer.update(lawyer_params)
   #   redirect_to lawyers_path
-  # end
+  end
 
-  # def destroy
-  #   if @lawyer.user == current_user
-  #     @lawyer.destroy
-  #   end
-  # end
+  def destroy
+    if @lawyer.user == current_user
+      @user = @lawyer.user
+      @lawyer.destroy
+      redirect_to user_lawyers_path(user_id: @lawyer.user.id)
+    end
+  end
 
   private
 
