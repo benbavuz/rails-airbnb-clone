@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/about', to: "pages#about"
 
   resources :lawyers, only: [:index, :show, :create, :new, :edit, :update, :destroy]
   mount Attachinary::Engine => '/attachinary'
