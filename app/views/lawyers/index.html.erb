@@ -12,6 +12,11 @@
           <h2><%= lawyer.first_name %> <%=lawyer.last_name %></h2>
         <!-- <p>Very cool stuff, useful and smart</p> -->
           </div>
+          <div class="card-user">
+          <% if lawyer.photo? %>
+              <%= cl_image_tag(lawyer.photo.path, class: "avatar-large") %>
+          <% end %>
+          </div>
           <!-- <img class="card-user avatar" src="user.jpg"> -->
           <!-- <a class="card-link" href=""></a> -->
           </div>

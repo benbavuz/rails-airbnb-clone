@@ -19,6 +19,11 @@ class LawyersController < ApplicationController
 
   def new
     @lawyer = Lawyer.new
+    @lawyer.first_name = current_user.first_name
+    @lawyer.last_name = current_user.last_name
+    @lawyer.email = current_user.email
+    @lawyer.phone_number = current_user.phone_number
+
   end
 
   def create
