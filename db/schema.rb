@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20170222120629) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "user_id"
+    t.integer  "price_cents",  default: 0, null: false
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "price_cents",  default: 0, null: false
     t.index ["user_id"], name: "index_lawyers_on_user_id", using: :btree
   end
 
