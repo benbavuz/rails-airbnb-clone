@@ -1,4 +1,5 @@
 class Speciality < ApplicationRecord
-  has_many :lawyer_specialities
   validates :name, uniqueness: true, presence: true
+
+  has_many :lawyer_specialities
 end

@@ -1,6 +1,6 @@
 class LawyersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_lawyer, only: [:show, :edit, :update, :destroy]
+  before_action :set_lawyer, only: [:show, :edit, :update, :destroy, :add_speciality]
 
  # action linked to all users
   def index
@@ -46,7 +46,7 @@ class LawyersController < ApplicationController
   private
 
   def lawyer_params
-  params.require(:lawyer).permit(:first_name, :last_name, :email, :phone_number)
+  params.require(:lawyer).permit(:first_name, :last_name, :email, :phone_number, lawyer_specialities: [:speciality_id])
   end
 
   def set_lawyer
