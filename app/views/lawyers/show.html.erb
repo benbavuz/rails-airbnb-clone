@@ -3,5 +3,9 @@
       <h2><%= @lawyer.first_name %> <%= @lawyer.last_name %><h2>
       <p><%= @lawyer.email %></p>
       <p><%= @lawyer.phone_number %></p>
+      <h3>Specialities</h3>
+      <% @lawyer.specialities.each do |skill| %>
+      <p><%= skill[:name] %></p>
+      <% end %>
   </div>
 </div>

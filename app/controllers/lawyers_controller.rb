@@ -46,7 +46,7 @@ class LawyersController < ApplicationController
   private
 
   def lawyer_params
-  params.require(:lawyer).permit(:first_name, :last_name, :email, :phone_number, lawyer_specialities: [:speciality_id])
+  params.require(:lawyer).permit(:first_name, :last_name, :email, :phone_number, speciality_ids: [])
   end
 
   def set_lawyer
