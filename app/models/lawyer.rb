@@ -6,10 +6,10 @@ class Lawyer < ApplicationRecord
   validates :phone_number, presence:true
   validates :first_name, :uniqueness => { :scope => :last_name }
 
-  has_many :lawyer_specialities
+  has_many :lawyer_specialities, dependent: :destroy
   has_many :specialities, through: :lawyer_specialities
-  
-  has_attachment :photo
+
+  has_attachment :photo, dependent: :destroy
   monetize :price_cents
 end
 
