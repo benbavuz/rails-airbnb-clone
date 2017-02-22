@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'redis'
 # For user authentication
 gem 'devise'
+# For the pricing
+gem 'money-rails', '~>1'
 
 gem 'sass-rails'
 gem 'jquery-rails'

@@ -6,5 +6,6 @@ class Lawyer < ApplicationRecord
   validates :phone_number, presence:true
   validates :first_name, :uniqueness => { :scope => :last_name }
   has_attachment :photo
+  monetize :price_cents
 end
 

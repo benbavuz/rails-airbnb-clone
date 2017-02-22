@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3feb710950bc78efe84fc14292faec36a092d79c
-ActiveRecord::Schema.define(version: 20170221173248) do
+ActiveRecord::Schema.define(version: 20170222120629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +35,10 @@ ActiveRecord::Schema.define(version: 20170221173248) do
     t.string   "last_name"
     t.string   "phone_number"
     t.string   "email"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "user_id"
+    t.integer  "price_cents",  default: 0, null: false
     t.index ["user_id"], name: "index_lawyers_on_user_id", using: :btree
   end
 
