@@ -19,9 +19,13 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-      <!-- Notification -->
-
-
+      <!-- Add a Lawyer -->
+      <%= link_to new_lawyer_path do %>
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+        </span>
+      <% end %>
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -33,7 +37,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to user_appointments_path(current_user) do %>
                 <i class="fa fa-calendar"></i> <%= t(".profile", default: "Appointments") %>
               <% end %>
             </li>
