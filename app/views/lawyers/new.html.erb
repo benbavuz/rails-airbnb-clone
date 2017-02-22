@@ -5,6 +5,7 @@
       <%= simple_form_for @lawyer do |f| %>
           <%= f.input :first_name %>
           <%= f.input :last_name %>
+          <%= f.input :address %>
           <%= f.input :email %>
           <%= f.input :phone_number %>
           <%= f.input :photo, as: :attachinary %>
@@ -13,3 +14,4 @@
         <% end %>
   </div>
 </div>
+
