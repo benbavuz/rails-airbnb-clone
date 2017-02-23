@@ -8,20 +8,23 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <!-- Search form -->
-   <!--  <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form> -->
+
+    <!-- Home text link -->
+    <%= link_to t(".sign_in", default: "Home"), root_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <!-- About text link -->
+    <%= link_to t(".sign_in", default: "About"), about_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <!-- Lawyers text link -->
+    <%= link_to t(".sign_in", default: "Lawyers"), lawyers_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-
-      <!-- Notification -->
-
-
+      <!-- Add a Lawyer -->
+      <%= link_to new_lawyer_path do %>
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+        </span>
+      <% end %>
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -33,7 +36,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to user_appointments_path(current_user) do %>
                 <i class="fa fa-calendar"></i> <%= t(".profile", default: "Appointments") %>
               <% end %>
             </li>
@@ -53,9 +56,9 @@
 
     <% else %>
 
-      <!-- Login text link -->
+      <!-- Register text link -->
       <%= link_to t(".sign_in", default: "Register as a Lawyer"), new_lawyer_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <!-- Button (call-to-action) -->
+      <!-- Button Login (call-to-action) -->
       <%= link_to t(".top_call_to_action", default: "Log in"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <% end %>
