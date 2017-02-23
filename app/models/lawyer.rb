@@ -13,7 +13,7 @@ class Lawyer < ApplicationRecord
   has_many :specialities, through: :lawyer_specialities
 
   has_attachment :photo, dependent: :destroy
-  has_attachment :office_photo, dependent: :destroy
+  has_attachment :office_photo, :default_url => 'https://askthelaw.ae/wp-content/uploads/2016/12/law-office-lawyers-in-your-city.jpg', dependent: :destroy
   monetize :price_cents
 end
 
