@@ -41,6 +41,7 @@ class LawyersController < ApplicationController
   def create
     @lawyer = Lawyer.new(lawyer_params)
     @lawyer.user = current_user
+    # @lawyer.office_photo = blank_image(@lawyer)
     @lawyer.save!
     redirect_to user_lawyers_path(user_id: @lawyer.user.id)
   end
@@ -73,5 +74,13 @@ class LawyersController < ApplicationController
   def set_lawyer
     @lawyer = Lawyer.find(params[:id])
   end
+
+  # def blank_image(lawyer)
+  #   if lawyer.office_photo == nil
+  #     'https://askthelaw.ae/wp-content/uploads/2016/12/law-office-lawyers-in-your-city.jpg'
+  #   else
+  #     lawyer.office_photo
+  #   end
+  # end
 
 end
