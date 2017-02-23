@@ -42,7 +42,7 @@
             </li>
             <li>
               <%= link_to user_lawyers_path(current_user) do %>
-                <i class="fa fa-university"></i>  <%= t(".profile", default: "My listings") %>
+                <i class="fa fa-university"></i>  <%= t(".profile", default: "My WebApps") %>
               <% end %>
             </li>
             <li>
@@ -57,7 +57,7 @@
     <% else %>
 
       <!-- Register text link -->
-      <%= link_to t(".sign_in", default: "Register as a Lawyer"), new_lawyer_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".top_call_to_action", default: "Register"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <!-- Button Login (call-to-action) -->
       <%= link_to t(".top_call_to_action", default: "Log in"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
@@ -70,9 +70,9 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Lawyers</a></li>
       </ul>
     </div>
   </div>

@@ -32,6 +32,9 @@ class LawyersController < ApplicationController
 
   end
 
+  def preview
+  end
+
   def create
     @lawyer = Lawyer.new(lawyer_params)
     @lawyer.user = current_user
