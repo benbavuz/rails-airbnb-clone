@@ -1,6 +1,6 @@
 <div style = "height:30px"></div>
 <div class="container">
-  <div class = "form-login">
+  <div class="form-login">
 
     <h3 class = "text-center">Add a new lawyer</h3>
       <%= simple_form_for @lawyer do |f| %>
@@ -18,7 +18,9 @@
           </div>
           <% end %>
 
-          <%= f.input :photo, as: :attachinary %>
+          <p>Add yours pictures</p>
+          <%= f.input :photo, as: :attachinary, label: "Profil picture" %>
+          <%= f.input :office_photo, as: :attachinary, label: "Office picture" %>
           <%= f.input :price, label: "* Price" %>
           <%= f.submit "Add Lawyer", class: "btn btn-primary" %>
         <% end %>
