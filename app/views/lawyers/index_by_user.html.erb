@@ -5,20 +5,7 @@
 
     <% @lawyers.each do |lawyer| %>
 
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
-        <%= link_to lawyer_path(lawyer) do %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<% if lawyer.office_photo? %><%= cl_image_path(lawyer.office_photo.path, height: 300, width: 400, crop: :fill) %><% else %><%= cl_image_path('https://askthelaw.ae/wp-content/uploads/2016/12/law-office-lawyers-in-your-city.jpg', height: 300, width: 400, crop: :fill) %><% end %>);">
-            <div class="card-category">Lawyer</div>
-            <div class="card-description">
-              <h2><%= lawyer.first_name %> <%=lawyer.last_name %></h2>
-              <p>Counseling: <%= humanized_money(lawyer.price) %> €</p>
-              <!-- <p>Very cool stuff, useful and smart</p> -->
-            </div>
-          <!-- <img class="card-user avatar" src="user.jpg"> -->
-          <!-- <a class="card-link" href=""></a> -->
-          </div>
-        <% end %>
+      <%= render partial: "card", object: lawyer, as: :lawyer %>
         <div class="card-btn">
           <%= link_to edit_lawyer_path(lawyer) do %>
             <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
@@ -27,7 +14,6 @@
             <i class="fa fa-times fa-lg" aria-hidden="true"></i>
           <% end %>
         </div>
-      </div>
     <% end %>
   </div>
 </div>
