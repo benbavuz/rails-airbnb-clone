@@ -21,6 +21,13 @@
           <p>Add yours pictures</p>
           <%= f.input :photo, as: :attachinary, label: "Profil picture" %>
           <%= f.input :office_photo, as: :attachinary, label: "Office picture" %>
+          <hr>
+          <%= f.input :description %>
+          <%= f.collection_check_boxes(:payments, laywers_payments_checkboxes_collection, :first, :last) do |c| %>
+          <div>
+            <%= c.check_box %><%=  c.label %>
+          </div>
+          <% end %>
           <%= f.input :price, label: "* Price" %>
           <%= f.submit "Add Lawyer", class: "btn btn-primary" %>
         <% end %>

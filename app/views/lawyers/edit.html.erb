@@ -6,15 +6,27 @@
           <%= f.input :first_name %>
           <%= f.input :last_name %>
           <%= f.input :address %>
+          <%= f.input :zip_code %>
+          <%= f.input :city %>
           <%= f.input :email %>
           <%= f.input :phone_number %>
+
           <%= f.collection_check_boxes(:speciality_ids, Speciality.all, :id, :name) do |b| %>
           <div>
             <%= b.check_box %><%=  b.label %>
           </div>
           <% end %>
 
-          <%= f.input :photo, as: :attachinary %>
+          <p>Add yours pictures</p>
+          <%= f.input :photo, as: :attachinary, label: "Profil picture" %>
+          <%= f.input :office_photo, as: :attachinary, label: "Office picture" %>
+          <hr>
+          <%= f.input :description %>
+          <%= f.collection_check_boxes(:payments, laywers_payments_checkboxes_collection, :first, :last) do |c| %>
+            <div>
+              <%= c.check_box(checked: f.object.payments.include?(c.value.to_s)) %><%=  c.label %>
+            </div>
+          <% end %>
           <%= f.input :price, label: "* Price" %>
           <%= f.submit "Edit Lawyer", class: "btn btn-primary" %>
         <% end %>
