@@ -28,6 +28,9 @@ gem 'money-rails', '~>1'
 # For fb connect
 gem 'omniauth-facebook'
 
+# coumtry select
+gem 'country_select'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
