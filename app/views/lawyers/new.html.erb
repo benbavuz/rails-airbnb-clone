@@ -1,22 +1,25 @@
+<div style = "height:30px"></div>
 <div class="container">
-  <div class = "new-lawyer">
+  <div class = "form-login">
 
     <h3 class = "text-center">Add a new lawyer</h3>
       <%= simple_form_for @lawyer do |f| %>
           <%= f.input :first_name %>
           <%= f.input :last_name %>
+          <%= f.input :address %>
           <%= f.input :email %>
           <%= f.input :phone_number %>
-    
+
           <%= f.collection_check_boxes(:speciality_ids, Speciality.all, :id, :name) do |b| %>
           <div>
-            <%= b.check_box %> <%= b.label %>
+            <%= b.check_box %><%=  b.label %>
           </div>
           <% end %>
-  
+
           <%= f.input :photo, as: :attachinary %>
           <%= f.input :price, label: "* Price" %>
           <%= f.submit "Add Lawyer", class: "btn btn-primary" %>
         <% end %>
   </div>
 </div>
+

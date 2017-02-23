@@ -14,6 +14,12 @@ class LawyersController < ApplicationController
   end
 
   def show
+    @lawyers = []
+    @lawyers[0] = @lawyer
+    @hash = Gmaps4rails.build_markers(@lawyers) do |lawyer, marker|
+      marker.lat lawyer.latitude
+      marker.lng lawyer.longitude
+    end
   end
 
   #actions linked to specific user
@@ -61,7 +67,7 @@ class LawyersController < ApplicationController
   private
 
   def lawyer_params
-  params.require(:lawyer).permit(:first_name, :last_name, :email, :phone_number, :photo, :price, speciality_ids: [])
+  params.require(:lawyer).permit(:first_name, :last_name, :email, :address, :phone_number, :photo, :price, speciality_ids: [])
   end
 
   def set_lawyer
