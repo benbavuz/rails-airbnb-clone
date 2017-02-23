@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 20170223103025) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "user_id"
+    t.integer  "price_cents",  default: 0, null: false
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "price_cents",  default: 0, null: false
     t.string   "zip_code"
     t.string   "country"
     t.string   "city"
