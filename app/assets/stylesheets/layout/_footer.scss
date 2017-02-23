@@ -3,16 +3,14 @@
 .footer {
   list-style: none;
   text-decoration: none;
-  background-color: #333333;
+  background-color: $brand-color;
   color:#CCCCCC;
   padding: 1% 3%;
-  margin-top: 5%;
 }
 
 .footer a {
   list-style: none;
   text-decoration: none;
-  background-color: #333333;
   color:#CCCCCC;
   transition: color 0.5s ease
 }
