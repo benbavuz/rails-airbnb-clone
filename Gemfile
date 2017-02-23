@@ -26,6 +26,9 @@ gem 'devise'
 # For the pricing
 gem 'money-rails', '~>1'
 
+# coumtry select
+gem 'country_select'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
