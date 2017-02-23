@@ -25,6 +25,8 @@ end
 gem 'devise'
 # For the pricing
 gem 'money-rails', '~>1'
+# For fb connect
+gem 'omniauth-facebook'
 
 gem 'sass-rails'
 gem 'jquery-rails'
