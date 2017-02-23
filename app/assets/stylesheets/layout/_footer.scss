@@ -1,1 +1,30 @@
 // Your footer style
+/* Footer design */
+.footer {
+  list-style: none;
+  text-decoration: none;
+  background-color: #333333;
+  color:#CCCCCC;
+  padding: 30px;
+}
+
+.footer a {
+  list-style: none;
+  text-decoration: none;
+  background-color: #333333;
+  color:#CCCCCC;
+  transition: color 0.5s ease
+}
+
+.footer a:hover {
+  color: #FFFF00;
+}
+
+.list-inline {
+  margin: 0px 0px;
+}
+
+.list-inline li {
+  letter-spacing: 20px;
+  font-size: 30px;
+}
