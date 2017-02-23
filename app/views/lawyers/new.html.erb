@@ -17,6 +17,8 @@
           <% end %>
 
           <%= f.input :photo, as: :attachinary %>
+          <p>Add a picture of your office</p>
+          <%= f.input :office_photo, as: :attachinary %>
           <%= f.input :price, label: "* Price" %>
           <%= f.submit "Add Lawyer", class: "btn btn-primary" %>
         <% end %>
