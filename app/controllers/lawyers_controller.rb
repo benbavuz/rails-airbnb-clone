@@ -4,7 +4,12 @@ class LawyersController < ApplicationController
 
  # action linked to all users
   def index
-    @lawyers = Lawyer.where.not(latitude: nil, longitude: nil)
+
+    if params[:location].present?
+      @lawyers = Lawyer.near(params[:location])
+    else
+      @lawyers = Lawyer.where.not(latitude: nil, longitude: nil)
+    end
 
     @hash = Gmaps4rails.build_markers(@lawyers) do |lawyer, marker|
       marker.lat lawyer.latitude

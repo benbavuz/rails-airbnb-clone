@@ -2,5 +2,12 @@
   <div class="banner-content">
     <h1>Easy lawyer</h1>
     <p>Find and book a Lawyer around you in just a few clicks</p>
+
+  <%= form_tag lawyers_path, class: 'main-form', method: :get do %>
+  <%= label :location, "Search Lawyers near : " %>
+  <%= text_field_tag :location, params[:location] %>
+  <%= submit_tag "Search", class: "btn -btn-primary " %>
+  <% end %>
   </div>
 </div>
+
