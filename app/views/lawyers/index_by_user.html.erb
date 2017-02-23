@@ -4,7 +4,18 @@
   <div class="row">
 
     <% @lawyers.each do |lawyer| %>
-      <%= render partial: "card", object: lawyer, as: :lawyer %>
+
+        <div class="col-xs-12 col-sm-4">
+          <%= render partial: "card", object: lawyer, as: :lawyer %>
+            <div class="card-btn">
+              <%= link_to edit_lawyer_path(lawyer) do %>
+                <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to lawyer_path(lawyer), method: :delete, data: { confirm: "Delete your lawyer post ?" }  do %>
+                <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+              <% end %>
+            </div>
+        </div>
     <% end %>
   </div>
 </div>

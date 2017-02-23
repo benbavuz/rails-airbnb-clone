@@ -13,6 +13,7 @@ class Lawyer < ApplicationRecord
   has_many :specialities, through: :lawyer_specialities
 
   has_attachment :photo, dependent: :destroy
+  has_attachment :office_photo, dependent: :destroy
   monetize :price_cents
 end
 
