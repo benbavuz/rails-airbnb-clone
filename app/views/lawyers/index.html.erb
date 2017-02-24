@@ -38,16 +38,16 @@
 <% end %>
 
 <!-- ############# lawyer cards ################# -->
-<div class="container">
+<div class="container" style = "padding:30px">
   <div class="row">
-
     <% @lawyers.each do |lawyer| %>
       <div class="col-xs-12 col-sm-4">
-      <%= render partial: "card", object: lawyer, as: :lawyer %>
+              <%= render partial: "card", object: lawyer, as: :lawyer %>
       </div>
     <% end %>
   </div>
 </div>
+
 
 
 
