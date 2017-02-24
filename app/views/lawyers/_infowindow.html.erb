@@ -1,0 +1,5 @@
+<h4 style = "color:rgba(58, 175, 185, 1)"><%= lawyer.first_name %> <%= lawyer.last_name %> </h4>
+<h5>Price : <%= lawyer.price %> €</h5>
+
+<img src="<%= cl_image_path(lawyer.photo.path, height: 100, width: 100, crop: :fill) %>">
+
