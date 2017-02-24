@@ -48,12 +48,12 @@ class LawyersController < ApplicationController
     @lawyer.user = current_user
     # @lawyer.office_photo = blank_image(@lawyer)
     @lawyer.save!
-    if @lawyer.save
-      LawyerMailer.confirmation(@lawyer).deliver_now
-      redirect_to user_lawyers_path(user_id: @lawyer.user.id)
-    else
-      render :new
-    end
+    redirect_to user_lawyers_path(user_id: @lawyer.user.id)
+    # if @lawyer.save
+    #   LawyerMailer.confirmation(@lawyer).deliver_now
+    # else
+    #   render :new
+    # end
   end
 
   def edit
@@ -71,7 +71,7 @@ class LawyersController < ApplicationController
     if @lawyer.user == current_user
       @user = @lawyer.user
       @lawyer.destroy
-      redirect_to user_lawyers_path(user_id: @lawyer.user.id)
+      # redirect_to user_lawyers_path(user_id: @lawyer.user.id)
     end
   end
 
