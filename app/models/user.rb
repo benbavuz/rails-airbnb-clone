@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :lawyers
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
+  # add change for mail to confirme sign up
+  after_create :send_welcome_email
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -24,6 +26,14 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  # add change for mail to confirme sign up
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 
 end
