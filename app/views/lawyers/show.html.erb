@@ -43,11 +43,7 @@
 
 <div class = "text-center contact">
   <p class = "price"> Price per appointment: <%= humanized_money(@lawyer.price) %> €</p>
-<%= link_to lawyer_path(@lawyer), :onclick => 'alert("Your message is sent to '+@lawyer.email+'")'  do %>
-<div class= "btn btn-primary"> BOOK NOW </div>
-<% end %>
-</div>
-
+          <div class= "btn btn-primary"> BOOK NOW </div>
 </div>
 
 <!-- JS script for map rendering -->

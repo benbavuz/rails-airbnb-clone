@@ -14,7 +14,7 @@ class LawyersController < ApplicationController
     @hash = Gmaps4rails.build_markers(@lawyers) do |lawyer, marker|
       marker.lat lawyer.latitude
       marker.lng lawyer.longitude
-      # marker.infowindow render_to_string(partial: "/lawyers/map_box", locals: { lawyer: lawyer })
+      marker.infowindow render_to_string(partial: "lawyers/infowindow", locals: { lawyer: lawyer })
     end
   end
 
