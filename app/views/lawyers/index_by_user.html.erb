@@ -4,18 +4,19 @@
   <div class="row">
 
     <% @lawyers.each do |lawyer| %>
-
+      <div data-lawyer-id="<%= lawyer.id %>">
         <div class="col-xs-12 col-sm-4">
           <%= render partial: "card", object: lawyer, as: :lawyer %>
             <div class="card-btn">
               <%= link_to edit_lawyer_path(lawyer) do %>
                 <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
               <% end %>
-              <%= link_to lawyer_path(lawyer), method: :delete, data: { confirm: "Delete your lawyer post ?" }  do %>
+              <%= link_to lawyer_path(lawyer), remote: true, method: :delete, data: { confirm: "Delete your lawyer post ?" }  do %>
                 <i class="fa fa-times fa-lg" aria-hidden="true"></i>
               <% end %>
             </div>
         </div>
+      </div>
     <% end %>
   </div>
 </div>
@@ -25,4 +26,5 @@
   <div class="btn btn-primary text-center" style="background-color:$brand-color"> Add a Listing</div>
   <% end %>
   </div>
+
 
