@@ -11,13 +11,14 @@
           <%= f.input :city %>
           <%= f.input :email %>
           <%= f.input :phone_number %>
-
-          <%= f.collection_check_boxes(:speciality_ids, Speciality.all, :id, :name) do |b| %>
-          <div>
-            <%= b.check_box %><%=  b.label %>
-          </div>
-          <% end %>
-
+          <table>
+            <%= f.collection_check_boxes(:speciality_ids, Speciality.all, :id, :name) do |b| %>
+              <tr>
+                <td><%= b.check_box %></td>
+                <td><%=  b.label %></td>
+              </tr>
+            <% end %>
+          </table>
           <p>Add yours pictures</p>
           <%= f.input :photo, as: :attachinary, label: "Profil picture" %>
           <%= f.input :office_photo, as: :attachinary, label: "Office picture" %>
@@ -30,4 +31,3 @@
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyA9fRLzsidnOxWsfnqf2bwu3GU6On8EnYE"></script>
 <% end %>
-
