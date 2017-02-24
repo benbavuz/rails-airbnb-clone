@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
   # add change for mail to confirme sign up
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
